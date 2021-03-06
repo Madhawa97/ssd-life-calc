@@ -20,6 +20,8 @@ Following command will create a file named "first.txt" in your **home directory*
 ``` shell
 smartctl -a disk0 > ~/first.txt
 ```
+Please store the date you created this file. that will be needed when you run the test.
+
 
 ## How to Use
 
@@ -35,3 +37,6 @@ Then run the `calc.py` python script.
 which will ask you to enter the available Free Space on your SSD and Number of days elapsed since the creation of first.txt
 
 This will output the result on your terminal window.
+
+
+All of this process will create 2 files in your home directory. (first.txt and new.txt) which you can delete once you done with the script. 
