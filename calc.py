@@ -18,7 +18,8 @@ new_read = float(new_read_from_file)
 time_period = float(
     input("No. of Days from the creation of first.txt file? : "))  # in days
 drive_size = 256  # (GB)
-avail_space = 170  # free space available (GB)
+avail_space = float(
+    input("Enter the current available Free Space on your SSD in GBs : "))  # free space available (GB)
 life_time = round(150/256*avail_space /
                   ((new_read - first_read)*365/time_period), 2)
 
@@ -26,3 +27,4 @@ print(f"You have {life_time} years of lifetime")  # from purchasing date
 
 f.close()
 g.close()
+input()
