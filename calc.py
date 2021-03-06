@@ -27,4 +27,4 @@ print(f"You have {life_time} years of lifetime")  # from purchasing date
 
 f.close()
 g.close()
-input()
+input("Press \"Enter\" to Quit.")
