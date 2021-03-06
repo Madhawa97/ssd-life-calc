@@ -13,7 +13,7 @@ install [Smartmontools](https://www.smartmontools.org/) via [Homebrew](https://b
 brew install smartmontools
 ```
 
-locate to your **home directory** and create "first.txt" including the output from the [smartmontools](https://www.smartmontools.org/) using,
+Following command will create a file named "first.txt" in your **home directory** including the [smartmontools](https://www.smartmontools.org/) terminal output,
 ``` shell
 smartctl -a disk0 > ~/first.txt
 ```
