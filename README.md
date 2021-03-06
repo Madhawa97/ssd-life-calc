@@ -33,8 +33,11 @@ Following steps should be performed every time you want to run the test.
 smartctl -a disk0 > ~/new.txt
 ```
 
-Then run the `calc.py` python script.  
-which will ask you to enter the available Free Space on your SSD and Number of days elapsed since the creation of first.txt
+Locate the terminal to your Home directory and run the `calc.py` python script.
+```shell
+python3 PATH/TO/THE/calc.py
+```
+It will ask you to enter the available Free Space on your SSD and Number of days elapsed since the creation of first.txt
 
 This will output the result on your terminal window.
 
