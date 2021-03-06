@@ -33,7 +33,7 @@ Following steps should be performed every time you want to run the test.
 smartctl -a disk0 > ~/new.txt
 ```
 
-Locate the terminal to your Home directory and run the `calc.py` python script. 
+**Locate the terminal to your Home directory** and run the `calc.py` python script. 
 ```shell
 python3 ~/PATH/TO/THE/FILE/calc.py
 ```
