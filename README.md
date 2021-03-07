@@ -27,11 +27,6 @@ Please store the date you created this file. that will be needed when you run th
 
 After few days of regular usage, you can check your SSD's usable time period.
 
-Following steps should be performed every time you want to run the test.
-
-```shell
-smartctl -a disk0 > ~/new.txt
-```
 
 Locate the terminal to your Home directory and run the `calc.py` python script. 
 ```shell

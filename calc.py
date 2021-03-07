@@ -1,3 +1,5 @@
+import os
+os.system("smartctl -a disk0 > ~/new.txt")
 f = open('first.txt')
 lines = f.readlines()
 # print(lines[32].index("TB"))
@@ -23,7 +25,8 @@ avail_space = float(
 life_time = round(150/256*avail_space /
                   ((new_read - first_read)*365/time_period), 2)
 
-print(f"You have {life_time} years of lifetime")  # from purchasing date
+# from purchasing date
+print(f"You have at least {life_time} years of lifetime")
 
 f.close()
 g.close()
