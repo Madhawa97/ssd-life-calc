@@ -28,7 +28,7 @@ Please store the date you created this file. that will be needed when you run th
 After few days of regular usage, you can check your SSD's usable time period.
 
 
-Locate the terminal to your Home directory and run the `calc.py` python script. 
+**Locate the terminal to your Home directory** and run the `calc.py` python script. 
 ```shell
 python3 ~/PATH/TO/THE/FILE/calc.py
 ```
