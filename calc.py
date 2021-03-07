@@ -17,13 +17,10 @@ first_read = float(first_read_from_file)
 # first_read = 1.47  # (TB)
 new_read = float(new_read_from_file)
 # new_read = 1.61  # (TB)
-time_period = float(
-    input("No. of Days from the creation of first.txt file? : "))  # in days
+time_period = float(input("No. of Days from the creation of first.txt file? : "))  # in days
 drive_size = 256  # (GB)
-avail_space = float(
-    input("Enter the current available Free Space on your SSD in GBs : "))  # free space available (GB)
-life_time = round(150/256*avail_space /
-                  ((new_read - first_read)*365/time_period), 2)
+avail_space = float(input("Enter the current available Free Space on your SSD in GBs : "))  # free space available (GB)
+life_time = round(150/256*avail_space /((new_read - first_read)*365/time_period), 2)
 
 # from purchasing date
 print(f"You have at least {life_time} years of lifetime")
