@@ -1,9 +1,10 @@
 # SSDLifeCalc
 
 Simple calculator for check the usable time period of the SSD on your M1 Macs based on your usage.
-The results will be further accurate with a Longer time period ( minimum is a day )
+The results will be further accurate with a Longer time period ( minimum is a day, a month is preferred. )
 
-This calculate based on the available free space on your SSD and **assuming these SSDs have a 150TBW value per 250GB.**
+This calculates based on the available free space on your SSD and **assuming these SSDs have a 150TBW value per 250GB.**  
+Thats the worst case scenario. Based on the current speculations these drives could have a (500 to 1500)TBW value per 256GB.
 
 haven't tested for intel macs.
 
