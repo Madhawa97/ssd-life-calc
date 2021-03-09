@@ -19,7 +19,7 @@ brew install smartmontools
 Following command will create a file named "first.txt" in your **home directory** including the [smartmontools](https://www.smartmontools.org/) terminal output,
 
 ``` shell
-smartctl -a disk0 > ~/first.txt
+smartctl -a disk0 > ~/firstssdlc.txt
 ```
 Please store the date you created this file. that will be needed when you run the test.
 
