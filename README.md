@@ -1,4 +1,4 @@
-# SSDLifeCalc
+# SSD-Life-Calc
 
 ## Introduction
 
