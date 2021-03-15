@@ -35,7 +35,7 @@ python3 ~/PATH/TO/THE/FILE/calc.py
 ```
 (replace the PATH/TO/THE/FILE with your own location)
 
-or,
+or,  
 just place the calc.py in the Home directory.
   
 
