@@ -42,8 +42,7 @@ example:
 ``` shell
 alias slc="python3 ~/Projects/ssd-life-calc/calc.py"
 ```
-![Sample run](<img width="838" alt="Screenshot 2021-03-15 at 05 23 14" src="https://user-images.githubusercontent.com/70215958/111089045-13bd8f00-8550-11eb-9fec-36441f045749.png">
-
+![Sample run](<img width="838" alt="Screenshot 2021-03-15 at 05 23 14" src="https://user-images.githubusercontent.com/70215958/111089045-13bd8f00-8550-11eb-9fec-36441f045749.png">)
 
 ## Removal
 All of this process will create 2 files in your home directory. (firstssdlc.txt and newssdlc.txt) you can delete them if you're no longer using the script. 
