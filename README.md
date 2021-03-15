@@ -33,7 +33,10 @@ After few days or months of regular usage, you can check your SSD's usable time 
 ```shell
 python3 ~/PATH/TO/THE/FILE/calc.py
 ```
-(replace the PATH/TO/THE/FILE with your own location or just place the calc.py in the Home directory)
+(replace the PATH/TO/THE/FILE with your own location)
+
+or,
+just place the calc.py in the Home directory.
   
 
 ### Set Alias in .zshrc
