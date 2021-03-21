@@ -9,8 +9,8 @@ def numOfDays(date1, date2):
 
 '''
 If your code isn't working as expected, 
-adjust these sections. 
-you can manually enter the time period instead of adjusting (###) section
+adjust lines 21 and 28 to align it properly with the TB count. 
+.
 '''
 
 first_file = open('firstssdlc.txt')
