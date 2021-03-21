@@ -49,7 +49,6 @@ day_n = int((line_with_date_from_newfile[44:47]).strip(" +"))
 
 date1 = date(year_f, month_f, day_f)
 date2 = date(year_n, month_n, day_n)
-#print(type(numOfDays(date1, date2)))
 
 time_period = (numOfDays(date1, date2))
 avail_space = float(input("\nEnter the currently available Free Space on your SSD in GBs : "))  

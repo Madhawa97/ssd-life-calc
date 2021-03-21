@@ -7,7 +7,7 @@ The results will be further accurate with a Longer time period ( minimum is a da
 
 This calculates based on the available free space on your SSD and **assuming these SSDs have a 150TBW per 250GB.**
 
-haven't tested for intel macs.  
+You should have at least 1TB of data already written in order for this to work.
 
 ## Prerequisites
 
