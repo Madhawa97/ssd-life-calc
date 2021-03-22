@@ -7,7 +7,6 @@ The results will be further accurate with a Longer time period ( minimum is a da
 
 This calculates based on the available free space on your SSD and **assuming these SSDs have a 150TBW per 250GB.**
 
-You should have at least 1TB of data already written in order for this to work.
 
 ## Prerequisites
 
@@ -17,16 +16,14 @@ install [Smartmontools](https://www.smartmontools.org/) via [Homebrew](https://b
 brew install smartmontools
 ```
 
-**run Following command.** it will create a file named "firstssdlc.txt" in your **home directory**. You only need to run this command at the first time.
+**run Following command.** it will create a file named "firstssdlc.json" in your **home directory**. You only need to run this command at the first time.
 
 ``` shell
-smartctl -a disk0 > ~/firstssdlc.txt
+smartctl -a disk0 -j > ~/firstssdlc.json
 ```
   
 
 ## How to Use
-
-After few days or months of regular usage, you can check your SSD's usable time period. if will be more accurate with a longer period of time.
 
 
 **Locate the terminal to your Home directory** and run the `calc.py` python script. 
@@ -53,4 +50,4 @@ alias slc="python3 ~/Projects/ssd-life-calc/calc.py"
   
   
 ## Removal
-All of this process will create 2 files in your home directory. (firstssdlc.txt and newssdlc.txt) you can delete them if you're no longer using the script. 
+This script will create 2 files in your home directory. (firstssdlc.json and newssdlc.json) you can delete them if you're no longer using the script. 
