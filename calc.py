@@ -62,8 +62,10 @@ try:
 
 except TypeError:
     print("Type Error! please try again.")
+    raise
 except ValueError:
     print("Value Error! please try again.")
+    raise
 
 else:
     print_out()
