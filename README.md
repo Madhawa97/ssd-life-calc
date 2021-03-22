@@ -36,7 +36,7 @@ or,
 just place the calc.py in the Home directory.
   
 
-### Set Alias in .zshrc
+### Set an alias in .zshrc
 example:
 ``` shell
 alias slc="python3 ~/Projects/ssd-life-calc/calc.py"
