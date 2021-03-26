@@ -5,7 +5,7 @@
 Simple calculator for check the usable time period of the SSD on your M1 Macs on the go.
 The results will be further accurate with a Longer time period ( minimum is a day, a month is preferred. )
 
-Script calculates based on the available free space on your SSD and **assuming these SSDs have a 150TBW per 250GB.**
+The script calculates based on the available free space on your SSD and **assuming these SSDs have a 150TBW per 250GB.**
 
 
 ## Prerequisites
