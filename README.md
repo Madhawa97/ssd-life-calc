@@ -2,10 +2,10 @@
 
 ## Introduction
 
-Simple calculator for check the usable time period of the SSD on your M1 Macs based on your usage.
+Simple calculator for check the usable time period of the SSD on your M1 Macs on the go.
 The results will be further accurate with a Longer time period ( minimum is a day, a month is preferred. )
 
-This calculates based on the available free space on your SSD and **assuming these SSDs have a 150TBW per 250GB.**
+Script calculates based on the available free space on your SSD and **assuming these SSDs have a 150TBW per 250GB.**
 
 
 ## Prerequisites
@@ -30,7 +30,6 @@ smartctl -a disk0 -j > ~/firstssdlc.json
 ```shell
 python3 ~/PATH/TO/THE/FILE/calc.py
 ```
-(replace the PATH/TO/THE/FILE with your own location)
 
 or,  
 just place the calc.py in the Home directory.
@@ -50,4 +49,4 @@ alias slc="python3 ~/Projects/ssd-life-calc/calc.py"
   
   
 ## Removal
-This script will create 2 files in your home directory. (firstssdlc.json and newssdlc.json) you can delete them if you're no longer using the script. 
+This script will create 2 files in your home directory. (firstssdlc.json and newssdlc.json) you can delete them if you no longer use the script. 
