@@ -44,7 +44,8 @@ alias slc="python3 ~/Projects/ssd-life-calc/calc.py"
   
 ## Sample Run
 
-<img width="952" alt="Screenshot 2021-03-16 at 11 21 58" src="https://user-images.githubusercontent.com/70215958/111262242-efde7400-8649-11eb-862d-70f3d21d630b.png">
+<img width="942" alt="Screenshot 2021-03-30 at 02 53 12" src="https://user-images.githubusercontent.com/70215958/112902068-3a102c80-9103-11eb-982a-5d94956e850f.png">
+
 
   
   
