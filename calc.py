@@ -3,6 +3,7 @@ from datetime import date
 import json
 
 os.system("smartctl -a disk0 -j > ~/newssdlc.json")
+os.system('diskutil info / | grep "Free Space" > ~/currentfreespace.txt')
 
 def num_of_days(date1, date2):
     return (date2-date1).days
@@ -27,11 +28,20 @@ def print_out():
     print(f"\tDate of current read : \t\t\t {day_n}-{month_n}-{year_n}")
     print(f"\tData Units Written at current read : \t {data_written_from_new_reading} TB\n")
     print(f"\tTime period : \t\t\t\t {time_period} Days\n")
+    print(f"\tAvailable free space : \t\t\t {avail_space} GB\n")
     print(f"\tMinimum life expectancy : \t\t {life_time} Years\n")
     print("* please not that, Modern SSDs can last more than 2 times the above time period.")
     print("_"*80+"\n")
 
 try:
+    # get currently available free space
+    cfs = open('currentfreespace.txt')
+    cfs_lines = cfs.readlines()
+    cfs_line = cfs_lines[0]
+    cfsl_index = cfs_line.index('exactly')
+    cfs_int = round((int(cfs_line[cfsl_index:].split()[1]))*512000/1000**4, 1)
+
+
     first_file = open('firstssdlc.json')
     json_data_of_firstfile = first_file.read()
     obj_first_file = json.loads(json_data_of_firstfile)
@@ -57,7 +67,8 @@ try:
     date2 = date(year_n, month_n, day_n)
 
     time_period = (num_of_days(date1, date2))
-    avail_space = float(input("\nEnter the currently available Free Space on your SSD in GBs : "))  
+    # avail_space = float(input("\nEnter the currently available Free Space on your SSD in GBs : "))
+    avail_space = cfs_int
     life_time = round(150/256*avail_space /((data_written_from_new_reading - data_written_from_first_reading)*365/time_period), 2)
 
 except TypeError:
@@ -73,6 +84,7 @@ else:
 finally:
     first_file.close()
     new_file.close()
+    cfs.close()
     input("Press \"Enter\" to Quit.")
 
 
