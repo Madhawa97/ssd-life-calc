@@ -2,8 +2,8 @@
 
 ## Introduction
 
-Simple calculator for check the usable time period of the SSD on your M1 Macs on the go.
-The results will be further accurate with a Longer time period ( minimum is a day, a month is preferred. )
+Simple calculator for check the usable time period of the SSD on your M1 Mac.
+The results will be further accurate with a Longer time period ( minimum is 1 day, a month is preferred )
 
 This script calculates based on the available free space on your SSD and **assuming these SSDs have a 150TBW per 250GB.**
 
@@ -44,10 +44,10 @@ alias slc="python3 ~/Projects/ssd-life-calc/calc.py"
   
 ## Sample Run
 
-<img width="942" alt="Screenshot 2021-04-05 at 04 47 36" src="https://user-images.githubusercontent.com/70215958/113524116-20bb2480-95ca-11eb-9e0e-f783efe5c5f3.png">
+<img width="942" alt="Screenshot 2021-07-02 at 23 46 59" src="https://user-images.githubusercontent.com/70215958/124314334-db3dd180-db8f-11eb-8be8-959f43c85621.png">
 
 
   
   
 ## Removal
-This script will create 3 files in your home directory. (firstssdlc.json, newssdlc.json and currentfreespace.txt) you can delete them if you no longer use the script. 
+This script will create 3 files in your home directory. (firstssdlc.json, newssdlc.json and currentfreespace.txt) you can delete them if you're no longer using the script. 
