@@ -50,4 +50,4 @@ alias slc="python3 ~/Projects/ssd-life-calc/calc.py"
   
   
 ## Removal
-This script will create 2 files in your home directory. (firstssdlc.json and newssdlc.json) you can delete them if you no longer use the script. 
+This script will create 3 files in your home directory. (firstssdlc.json, newssdlc.json and currentfreespace.txt) you can delete them if you no longer use the script. 
