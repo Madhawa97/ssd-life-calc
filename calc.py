@@ -25,75 +25,48 @@ def print_banner():
     print()
 
 def print_out():
-    print("_" * 80 + "\n")
-    print("📊 SSD HEALTH INFORMATION:")
-    print(f"\tSSD Model : \t\t\t\t {obj_new_file.get('model_name', 'Unknown')}")
-    print(f"\tCurrent Temperature : \t\t\t {obj_new_file['nvme_smart_health_information_log'].get('temperature', 'Unknown')}°C")
-    print(f"\tPower On Hours : \t\t\t {obj_new_file['nvme_smart_health_information_log'].get('power_on_hours', 0):,} hours")
-    print(f"\tPower Cycles : \t\t\t\t {obj_new_file['nvme_smart_health_information_log'].get('power_cycles', 0):,}")
-    print(f"\tUnsafe Shutdowns : \t\t\t {obj_new_file['nvme_smart_health_information_log'].get('unsafe_shutdowns', 0)}")
-    print(f"\tPercentage Used : \t\t\t {obj_new_file['nvme_smart_health_information_log'].get('percentage_used', 0)}%")
-    print(f"\tAvailable Spare : \t\t\t {obj_new_file['nvme_smart_health_information_log'].get('available_spare', 0)}%")
-    print("\n" + "📈 USAGE ANALYSIS:")
-    print(f"\tData Units Written at current read : \t {data_written_from_new_reading:.2f} TB")
-    print(f"\tMonitored time period : \t\t {time_period} Days")
-    print(f"\tData written in period : \t\t {data_written_diff:.2f} TB")
-    print(f"\tData read in period : \t\t\t {data_read_diff:.2f} TB")
-    print(f"\tAverage daily write : \t\t\t {daily_write_rate:.3f} TB/day")
-    print(f"\tEstimated yearly write : \t\t {yearly_write_rate:.2f} TB/year")
-    print("\n💾 STORAGE STATUS:")
-    print(f"\tTotal Container Space : \t\t {total_space:.2f} GB")
-    print(f"\tUsed Space : \t\t\t\t {used_space:.2f} GB")
-    print(f"\tAvailable free space : \t\t\t {avail_space:.2f} GB")
-    print(f"\tSpace usage percentage : \t\t {usage_percentage:.1f}%")
-    print("\n⏳ LIFE EXPECTANCY ESTIMATES:")
+    ascii_logo = r"""
+   ██████  ██        ██████  
+  ██       ██       ██    ██
+  ███████  ██      ███ 
+        ██ ██       ██    ██ 
+   ██████  ███████   ██████  
+    """
 
-    print("\n📊 Method 1: Based on Write Endurance (TBW Rating):")
-    if life_time_tbw == float('inf'):
-        print(f"\tLife expectancy : \t\t\t ∞ (No write activity detected)")
-    else:
-        print(f"\tLife expectancy : \t\t\t {life_time_tbw:.2f} Years")
-        print(f"\tEstimated replacement date : \t\t {replacement_year_tbw}")
-    print(f"\tBased on: Available space ({avail_space:.0f}GB) vs total endurance")
+    info = [
+        ("SSD Model", obj_new_file.get('model_name', 'Unknown')),
+        ("Temperature", f"{obj_new_file['nvme_smart_health_information_log'].get('temperature', 'Unknown')}°C"),
+        ("Power-On Hours", f"{power_on_hours:,} hrs"),
+        ("Power Cycles", f"{obj_new_file['nvme_smart_health_information_log'].get('power_cycles', 0):,}"),
+        ("Unsafe Shutdowns", obj_new_file['nvme_smart_health_information_log'].get('unsafe_shutdowns', 0)),
+        ("Wear Level", f"{percentage_used}% used"),
+        ("Free Space", f"{avail_space:.2f} GB"),
+        ("Used Space", f"{used_space:.2f} GB ({usage_percentage:.1f}%)"),
+        ("Monitoring Period", f"{time_period} days"),
+        ("Written This Period", f"{data_written_diff:.2f} TB"),
+        ("Daily Write", f"{daily_write_rate:.3f} TB/day"),
+        ("Yearly Write", f"{yearly_write_rate:.2f} TB/year"),
+        ("Life: TBW", f"{life_time_tbw:.2f} yrs → {replacement_year_tbw}" if life_time_tbw != float('inf') else "∞"),
+        # ("Life: SMART", f"{life_time_smart:.2f} yrs → {replacement_year_smart}" if life_time_smart != float('inf') else "∞"), // Commented as the logic needs to be updated by research
+        ("Life: Free Space", f"{life_time_free_space:.2f} yrs → {replacement_year_free_space}" if life_time_free_space != float('inf') else "∞"),
+    ]
 
-    print("\n🔬 Method 2: Based on Percentage Used (SMART Data):")
-    if life_time_smart == float('inf'):
-        print(f"\tLife expectancy : \t\t\t ∞ (No usage detected)")
-    else:
-        print(f"\tLife expectancy : \t\t\t {life_time_smart:.2f} Years")
-        print(f"\tEstimated replacement date : \t\t {replacement_year_smart}")
-    print(f"\tBased on: Current {percentage_used}% wear level over {power_on_hours:,} hours")
+    # Print logo and info side-by-side
+    logo_lines = ascii_logo.strip("\n").split("\n")
+    info_lines = [f"{label:<22}: {value}" for label, value in info]
+    max_lines = max(len(logo_lines), len(info_lines))
 
-    print("\n📊 Method 3: Based on Available Free Space:")
-    if life_time_free_space == float('inf'):
-        print(f"\tLife expectancy : \t\t\t ∞ (No write activity detected)")
-    else:
-        print(f"\tLife expectancy : \t\t\t {life_time_free_space:.2f} Years")
-        print(f"\tEstimated replacement date : \t\t {replacement_year_free_space}")
-    print(f"\tBased on: Current available space ({avail_space:.0f}GB) vs estimated TBW usage rate")
+    for i in range(max_lines):
+        left = logo_lines[i] if i < len(logo_lines) else " " * 28
+        right = info_lines[i] if i < len(info_lines) else ""
+        print(f"{left:<30}  {right}")
 
-    print(f"\n📈 Comparison:")
-    life_estimates = {
-        "TBW Method": life_time_tbw,
-        "SMART Method": life_time_smart,
-        "Free Space Method": life_time_free_space
-    }
+    # Footer
+    print("\n" + "-" * 80)
+    print("Tip: SMART estimates are generally more accurate for modern SSDs.")
+    print("Note: Real-world lifespan often exceeds manufacturer TBW ratings.")
+    print("=" * 80 + "\n")
 
-    usable = {k: v for k, v in life_estimates.items() if v != float('inf')}
-    if len(usable) >= 2:
-        best = max(usable, key=usable.get)
-        worst = min(usable, key=usable.get)
-        print(f"\tLongest estimate: {best} ({usable[best]:.2f} years)")
-        print(f"\tShortest estimate: {worst} ({usable[worst]:.2f} years)")
-    else:
-        print(f"\tNot enough usable data for comparison")
-
-    print("\n* Modern SSDs often last 2-5x longer than manufacturer ratings")
-    print("* Method 1 uses conservative approach based on available space")
-    print("* Method 2 uses actual wear measurement from SSD's internal monitoring")
-    print("* Method 3 offers a hybrid of space and write rate")
-    print("* Consider the more conservative (shorter) estimate for planning purposes")
-    print("_" * 80 + "\n")
 
 try:
     print_banner()
@@ -167,7 +140,7 @@ try:
 
         # Method 1: TBW
         if yearly_write_rate > 0:
-            life_time_tbw = (ssd_tbw_rating / ssd_capacity_gb) * avail_space / yearly_write_rate
+            life_time_tbw = ssd_tbw_rating / yearly_write_rate
             replacement_year_tbw = year_n + int(life_time_tbw)
         else:
             life_time_tbw = float('inf')
@@ -175,10 +148,15 @@ try:
 
         # Method 2: SMART
         if percentage_used > 0 and power_on_hours > 0:
-            wear_rate_per_hour = percentage_used / power_on_hours
-            remaining_percentage = 100 - percentage_used
-            remaining_hours = remaining_percentage / wear_rate_per_hour if wear_rate_per_hour > 0 else float('inf')
-            life_time_smart = remaining_hours / (24 * 365)
+            # wear_rate_per_hour = percentage_used / power_on_hours
+            # remaining_percentage = 100 - percentage_used
+            # remaining_hours = remaining_percentage / wear_rate_per_hour if wear_rate_per_hour > 0 else float('inf')
+
+            wear_rate_per_day = percentage_used / time_period  # time_period is days between readings
+            remaining_days = (100 - percentage_used) / wear_rate_per_day
+            life_time_smart = remaining_days / 365  # in years
+
+            # life_time_smart = remaining_hours / (24 * 365)
             replacement_year_smart = year_n + int(life_time_smart) if life_time_smart != float('inf') else "N/A"
         else:
             life_time_smart = float('inf')
