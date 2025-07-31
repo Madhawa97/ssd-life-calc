@@ -201,7 +201,7 @@ def print_out():
         ("Daily Write Rate", f"{Colors.BRIGHT_YELLOW}{daily_write_rate:.3f}{Colors.RESET} TB/day"),
         ("Yearly Write Rate", f"{Colors.BRIGHT_YELLOW}{yearly_write_rate:.2f}{Colors.RESET} TB/year"),
         ("Life: TBW Method", f"{Colors.BRIGHT_GREEN if life_time_tbw > 5 else Colors.BRIGHT_YELLOW if life_time_tbw > 2 else Colors.BRIGHT_RED}{life_time_tbw:.2f} yrs{Colors.RESET} → {Colors.BRIGHT_CYAN}{replacement_year_tbw}{Colors.RESET}" if life_time_tbw != float('inf') else f"{Colors.BRIGHT_GREEN}∞{Colors.RESET}"),
-        ("Life: SMART Method", f"{Colors.BRIGHT_GREEN if life_time_smart > 5 else Colors.BRIGHT_YELLOW if life_time_smart > 2 else Colors.BRIGHT_RED}{life_time_smart:.2f} yrs{Colors.RESET} → {Colors.BRIGHT_CYAN}{replacement_year_smart}{Colors.RESET}" if life_time_smart != float('inf') else f"{Colors.BRIGHT_GREEN}∞{Colors.RESET}"),
+        # ("Life: SMART Method", f"{Colors.BRIGHT_GREEN if life_time_smart > 5 else Colors.BRIGHT_YELLOW if life_time_smart > 2 else Colors.BRIGHT_RED}{life_time_smart:.2f} yrs{Colors.RESET} → {Colors.BRIGHT_CYAN}{replacement_year_smart}{Colors.RESET}" if life_time_smart != float('inf') else f"{Colors.BRIGHT_GREEN}∞{Colors.RESET}"),
         ("Life: Free Space Method", f"{Colors.BRIGHT_GREEN if life_time_free_space > 5 else Colors.BRIGHT_YELLOW if life_time_free_space > 2 else Colors.BRIGHT_RED}{life_time_free_space:.2f} yrs{Colors.RESET} → {Colors.BRIGHT_CYAN}{replacement_year_free_space}{Colors.RESET}" if life_time_free_space != float('inf') else f"{Colors.BRIGHT_GREEN}∞{Colors.RESET}"),
     ]
 
